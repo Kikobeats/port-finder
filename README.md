@@ -1,4 +1,4 @@
-# port-finder
+# PortFinder
 
 [![Build Status](http://img.shields.io/travis/kikobeats/port-finder/master.svg?style=flat)](https://travis-ci.org/kikobeats/port-finder)
 [![Dependency status](http://img.shields.io/david/kikobeats/port-finder.svg?style=flat)](https://david-dm.org/kikobeats/port-finder)
