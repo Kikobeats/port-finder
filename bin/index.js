@@ -57,5 +57,12 @@ else
 options.protocol = cli.flags.p;
 
 // Finally
-var output = PortFinder.get(options);
-console.log(render(output));
+try{
+  var output = PortFinder.get(options);
+  if (options.port) console.log(render({service:output}));
+  else console.log(render(output));
+} catch (e) {
+  console.log(render({error:e.message}));
+}
+
+

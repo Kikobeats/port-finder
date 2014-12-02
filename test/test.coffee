@@ -9,20 +9,50 @@ describe 'PortFinder', ->
 
   before  -> @pf = new PortFinder()
 
-  it 'read configuration file', ->
-    @pf.services.echo.tcp.should.eql 7
+  describe 'General', ->
 
-  it 'get all services', ->
-    @pf.get().echo.should.eql { tcp: 7, udp: 7 }
+    it 'read configuration file', ->
+      @pf.services.echo.tcp.should.eql 7
 
-  it 'get port from service name', ->
-    @pf.get(service:'echo').should.eql {tcp: 7, udp: 7}
+    it 'get all services', ->
+      @pf.get().echo.should.eql { tcp: 7, udp: 7 }
 
-  it 'get port from service specifing the protocol', ->
-    @pf.get(service:'echo', protocol:'tcp').should.eql 7
+    it 'get port from service name that exist', ->
+      @pf.get(service:'echo').should.eql {tcp: 7, udp: 7}
 
-  it 'get service from port number', ->
-    @pf.get(port:7).service.should.eql 'echo'
+    it 'get port from service specifying the protocol that exist', ->
+      @pf.get(service:'echo', protocol:'tcp').should.eql 7
+
+    it 'get service from port that exist', ->
+      @pf.get(port:7).service.should.eql 'echo'
+
+    it 'get service from port specifying protocol that exist', ->
+      @pf.get(port:7, protocol:'tcp').service.should.eql 'echo'
+
+  describe 'Error Cases', ->
+
+    it 'get port from service name that doesn\'t exist', ->
+      (->
+        @pf.get(service:'test')
+      ).should.throw()
+
+    it 'get port from service specifying the protocol that doesn\'t exist', ->
+      (->
+        @pf.get(service:'echo', protocol:'test')
+      ).should.throw()
+
+    it 'get service from port  that doesn\'t exist', ->
+      (->
+        @pf.get(port:9999)
+      ).should.throw()
+
+    it 'get service from port specifying protocol that doesn\'t exist', ->
+      (->
+        @pf.get(port:7, protocol:'test')
+      ).should.throw()
+
+  # xit 'get service from port number and specifying the protocol', ->
+  #   @pf.get(port:7, protocol:'tcp').service.should.eql 'echo'
 
   # it 'get a one free port', (done) ->
   #   @pf.free (port) ->
