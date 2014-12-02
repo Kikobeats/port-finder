@@ -34,7 +34,11 @@ class PortFinder
 
   ## -- Private ----------------------------------------------------------------
 
-  _readYAMLFile: (filePath) -> yaml.safeLoad(fs.readFileSync(filePath, 'utf8'))
+  _readYAMLFile: (filePath) ->
+    try
+      yaml.safeLoad(fs.readFileSync(filePath, 'utf8'))
+    catch e
+      throw new Error e
 
   _getPort: (serviceName, protocol) ->
     service = @services[serviceName]
