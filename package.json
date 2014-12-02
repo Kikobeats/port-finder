@@ -1,0 +1,53 @@
+{
+  "name": "port-finder",
+  "description": "Get service name for a port or get a port for a service name. What else? Ah, get available free ports.",
+  "version": "0.12.2",
+  "author": {
+    "name": "Kiko Beats",
+    "email": "josefrancisco.verdu@gmail.com",
+    "url": "https://github.com/Kikobeats"
+  },
+  "bin": {
+    "portFinder": "bin/index.js"
+  },
+  "dependencies": {
+    "async": "*",
+    "coffee-script": "*",
+    "compact-json": "*",
+    "get-port": "*",
+    "js-yaml": "*",
+    "meow": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "homepage": "",
+  "keywords": [
+    "http",
+    "utilities",
+    "port",
+    "find",
+    "free",
+    "available",
+    "connection",
+    "connect",
+    "open",
+    "net",
+    "tcp",
+    "udp",
+    "scan",
+    "rand",
+    "random"
+  ],
+  "license": "MIT",
+  "main": "./index.js",
+  "repository": "kikobeats/port-finder",
+  "scripts": {
+    "prepublish": "npm prune",
+    "test": "sh test/test.sh"
+  }
+}

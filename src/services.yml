@@ -1,0 +1,29 @@
+echo:
+  tcp: 7
+  udp: 7
+ftp_data:
+  tcp: 20
+ftp:
+  tcp: 21
+sftp:
+  tcp: 115
+ssh:
+  tcp: 22
+telnet:
+  tcp: 23
+smtp:
+  tcp: 25
+http:
+  tcp: 80
+https:
+  tcp: 443
+pop3:
+  tcp: 110
+pop3s:
+  tcp: 995
+  udp: 995
+imap:
+  tcp: 143
+imaps:
+  tcp: 993
+
