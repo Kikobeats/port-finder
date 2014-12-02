@@ -24,10 +24,10 @@ describe 'PortFinder', ->
       @pf.get(service:'echo', protocol:'tcp').should.eql 7
 
     it 'get service from port that exist', ->
-      @pf.get(port:7).service.should.eql 'echo'
+      @pf.get(port:7).should.eql 'echo'
 
     it 'get service from port specifying protocol that exist', ->
-      @pf.get(port:7, protocol:'tcp').service.should.eql 'echo'
+      @pf.get(port:7, protocol:'tcp').should.eql 'echo'
 
   describe 'Error Cases', ->
 
