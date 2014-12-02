@@ -1,7 +1,7 @@
 {
   "name": "port-finder",
   "description": "Get service name for a port or get a port for a service name. What else? Ah, get available free ports.",
-  "version": "0.12.2b",
+  "version": "0.12.2c",
   "author": {
     "name": "Kiko Beats",
     "email": "josefrancisco.verdu@gmail.com",
