@@ -8,6 +8,8 @@
 
 > Get service name for a port or get a port for a service name. What else? Ah, get available free ports.
 
+![](demo.gif)
+
 ## Install
 
 ```bash

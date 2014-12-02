@@ -26,4 +26,10 @@ imap:
   tcp: 143
 imaps:
   tcp: 993
-
+telnet:
+  tcp: 23
+dns:
+  tcp: 53
+  udp: 53
+dhcp:
+  udp: 68
