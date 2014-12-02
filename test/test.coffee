@@ -51,9 +51,6 @@ describe 'PortFinder', ->
         @pf.get(port:7, protocol:'test')
       ).should.throw()
 
-  # xit 'get service from port number and specifying the protocol', ->
-  #   @pf.get(port:7, protocol:'tcp').service.should.eql 'echo'
-
   # it 'get a one free port', (done) ->
   #   @pf.free (port) ->
   #     console.log port
