@@ -15,7 +15,7 @@
     "coffee-script": "*",
     "compact-json": "*",
     "get-port": "*",
-    "js-yaml": "*",
+    "js-yaml": "^3.x",
     "meow": "*"
   },
   "devDependencies": {
