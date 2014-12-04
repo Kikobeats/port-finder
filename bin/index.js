@@ -40,7 +40,10 @@ if (isEmpty) return cli.showHelp();
 // all services
 if (cli.flags.a) return console.log(render(PortFinder.get()));
 // free ports
-if (cli.flags.f) return PortFinder.free(cli.flags.n, function(ports){
+if (cli.flags.f) return PortFinder.get({
+  free: true,
+  quantity: cli.flags.n
+}, function(ports){
   console.log(render(ports));
 });
 

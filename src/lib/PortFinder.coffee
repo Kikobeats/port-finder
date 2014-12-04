@@ -14,23 +14,12 @@ class PortFinder
   constructor: (configFile=defaultConfig) ->
     @services = @_readYAMLFile configFile
 
-  get: (opts) ->
+  get: (opts, cb) ->
     return @services unless opts
-    return @_getPort opts.service, opts.protocol if opts.service?
-    return @_findService opts.port, opts.protocol if opts.port?
+    return @_getServiceFromName opts.service, opts.protocol if opts.service?
+    return @_getServiceFromPort opts.port, opts.protocol if opts.port?
+    return @_getFreePorts opts.quantity, cb if opts.free?
     throw new Error "You need to specify a service."
-
-  free: (quantity=1, cb) ->
-    ports = []
-    async.until (
-      -> quantity is 0
-    ), ((c) =>
-      @_getAvailablePort (port) ->
-        ports.push port
-        --quantity
-        c()
-    ), (err) ->
-      cb(ports)
 
   ## -- Private ----------------------------------------------------------------
 
@@ -40,7 +29,7 @@ class PortFinder
     catch e
       throw new Error e
 
-  _getPort: (serviceName, protocol) ->
+  _getServiceFromName: (serviceName, protocol) ->
     service = @services[serviceName]
     if protocol?
       service[protocol] or
@@ -49,12 +38,7 @@ class PortFinder
     else
       service or throw new Error "Service '#{serviceName}' doesn't found."
 
-  _getAvailablePort: (cb) ->
-    getPort (err, port) ->
-      return throw new Error err if err
-      cb(port)
-
-  _findService: (port, protocol) ->
+  _getServiceFromPort: (port, protocol) ->
     search = undefined
     for service of @services
       protocols = @services[service]
@@ -74,6 +58,22 @@ class PortFinder
       '#{protocol}' doesn't found."
     search
 
+  _getFreePorts: (quantity=1, cb) ->
+    _getPort = (cb) ->
+      getPort (err, port) ->
+        return throw new Error err if err
+        cb(port)
+    ports = []
+    async.until (
+      -> quantity is 0
+    ), ((c) ->
+      _getPort (port) ->
+        ports.push port
+        --quantity
+        c()
+    ), (err) ->
+      cb(ports)
+
 ## -- Exports ------------------------------------------------------------------
 
-module.exports = PortFinder
+exports = module.exports = PortFinder
