@@ -1,5 +1,7 @@
 # PortFinder
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Kikobeats/port-finder.svg)](https://greenkeeper.io/)
+
 [![Build Status](http://img.shields.io/travis/Kikobeats/port-finder/master.svg?style=flat)](https://travis-ci.org/Kikobeats/port-finder)
 [![Dependency status](http://img.shields.io/david/Kikobeats/port-finder.svg?style=flat)](https://david-dm.org/Kikobeats/port-finder)
 [![Dev Dependencies Status](http://img.shields.io/david/dev/Kikobeats/port-finder.svg?style=flat)](https://david-dm.org/Kikobeats/port-finder#info=devDependencies)
