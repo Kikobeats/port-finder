@@ -19,7 +19,7 @@
     "meow": "*"
   },
   "devDependencies": {
-    "mocha": "*",
+    "mocha": ">=3.5.0",
     "should": "*"
   },
   "engines": {
