@@ -14,7 +14,7 @@
     "async": "*",
     "coffee-script": "*",
     "compact-json": "*",
-    "get-port": "*",
+    "get-port": "3.1.0",
     "js-yaml": "^3.x",
     "meow": "*"
   },
