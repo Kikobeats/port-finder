@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "mocha": "*",
-    "should": "*"
+    "should": "11.2.1"
   },
   "engines": {
     "node": "*"
