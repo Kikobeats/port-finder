@@ -11,16 +11,16 @@
     "portFinder": "bin/index.js"
   },
   "dependencies": {
-    "async": "*",
-    "coffee-script": "*",
-    "compact-json": "*",
-    "get-port": "*",
-    "js-yaml": "^3.x",
-    "meow": "*"
+    "async": "latest",
+    "coffee-script": "latest",
+    "compact-json": "latest",
+    "get-port": "latest",
+    "js-yaml": "latest",
+    "meow": "latest"
   },
   "devDependencies": {
-    "mocha": "*",
-    "should": "*"
+    "mocha": "latest",
+    "should": "latest"
   },
   "engines": {
     "node": "*"
